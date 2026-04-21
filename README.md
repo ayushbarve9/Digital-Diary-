@@ -1,15 +1,24 @@
-# Digital Diary (Python Website)
+# Digital Diary (Python Web App)
 
-A simple beginner-friendly diary website built with Python and Flask.
+A mini-project digital diary website built with Python and Flask.
+It includes user authentication, a real SQLite database, and owner-only diary management.
 
 ## Features
 
-- Add a new diary entry in a web form
-- View all saved entries in the browser
-- Entries are saved with date and time
-- Data stored locally in `diary_entries.json`
+- Register and login system with hashed passwords
+- Personal diary dashboard for each user
+- Create, edit, and delete entries
+- Owner-only access control (users can only modify their own entries)
+- Real database storage using SQLite (`diary.db`)
+- Browser opens automatically when app starts
 
-## Run the app
+## Tech Stack
+
+- Python 3
+- Flask
+- SQLite (built-in with Python)
+
+## Steps to Run
 
 1. Open terminal in this folder.
 2. Install dependencies:
@@ -18,48 +27,45 @@ A simple beginner-friendly diary website built with Python and Flask.
 py -m pip install -r requirements.txt
 ```
 
-3. Start the website:
+3. Run the app:
 
 ```bash
 py app.py
 ```
 
-4. Open this in your browser:
+4. App opens in browser automatically. If needed, visit:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-## Git + GitHub setup (first time)
+## Suggested GitHub Collaboration Strategy
 
-Run these commands one by one:
+- Do not code directly on `main`
+- Create feature branches:
+  - `feature-auth`
+  - `feature-diary-crud`
+  - `feature-ui-docs`
+- Raise pull requests and review each other before merge
 
-```bash
-git init
-git add .
-git commit -m "Initial digital diary app"
-```
+## Team Member Contributions
 
-Then:
+Update this section with your real names before submission:
 
-1. Create a new empty repository on GitHub named `digital-diary`.
-2. Copy your repo URL from GitHub.
-3. Run:
+| Team Member | Branch | Contribution |
+| --- | --- | --- |
+| Member 1 | `feature-auth` | Login/register, session management |
+| Member 2 | `feature-diary-crud` | Add/view/edit/delete diary entries |
+| Member 3 | `feature-ui-docs` | UI polish, README, testing, video |
 
-```bash
-git remote add origin <YOUR_GITHUB_REPO_URL>
-git branch -M main
-git push -u origin main
-```
+## Demo Video
 
-After this, your diary code is backed up on GitHub.
+Add your project demo link here (Google Drive / YouTube):
 
-## Daily workflow
+`<PASTE_VIDEO_LINK_HERE>`
 
-When you make changes:
+## GitHub Repository Link
 
-```bash
-git add .
-git commit -m "Describe your change"
-git push
-```
+Add your final repository URL here:
+
+`<PASTE_GITHUB_REPO_LINK_HERE>`

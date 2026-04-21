@@ -5,18 +5,25 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f6fb;
+  background: #f3f5ff;
   color: #222;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 960px;
   margin: 30px auto;
   padding: 0 16px 24px;
 }
 
 h1 {
   margin-bottom: 8px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .subtitle {
@@ -32,6 +39,7 @@ h1 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
+input,
 textarea {
   width: 100%;
   resize: vertical;
@@ -39,6 +47,7 @@ textarea {
   border-radius: 8px;
   padding: 10px;
   font-size: 15px;
+  margin-top: 8px;
 }
 
 button {
@@ -53,6 +62,22 @@ button {
 
 button:hover {
   background: #2458bc;
+}
+
+.secondary {
+  background: #5f6470;
+}
+
+.secondary:hover {
+  background: #484d57;
+}
+
+.danger {
+  background: #c53838;
+}
+
+.danger:hover {
+  background: #972929;
 }
 
 .entry {
@@ -74,4 +99,29 @@ button:hover {
 .text {
   margin: 0;
   white-space: pre-wrap;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.flash {
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 6px 0;
+}
+
+.flash.success {
+  background: #e9f8ef;
+  color: #186737;
+}
+
+.flash.error {
+  background: #ffecee;
+  color: #8f1f2a;
+}
+
+.auth-container {
+  max-width: 520px;
 }

@@ -3,19 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Diary</title>
+    <title>Digital Diary Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   </head>
   <body>
     <main class="container">
-      <h1>Digital Diary</h1>
-      <p class="subtitle">Write your thoughts and keep them safe.</p>
+      <header class="top-bar">
+        <div>
+          <h1>Digital Diary</h1>
+          <p class="subtitle">Welcome, {{ user.username }}. Your private entries are below.</p>
+        </div>
+        <form method="post" action="{{ url_for('logout') }}">
+          <button type="submit" class="secondary">Logout</button>
+        </form>
+      </header>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <section class="card">
+            {% for category, message in messages %}
+              <p class="flash {{ category }}">{{ message }}</p>
+            {% endfor %}
+          </section>
+        {% endif %}
+      {% endwith %}
 
       <section class="card">
         <h2>New Entry</h2>
         <form method="post" action="{{ url_for('add_entry') }}">
+          <input
+            type="text"
+            name="title"
+            placeholder="Entry title"
+            maxlength="120"
+            required
+          />
           <textarea
-            name="entry_text"
+            name="content"
             rows="6"
             placeholder="How was your day?"
             required
@@ -29,8 +53,19 @@
         {% if entries %}
           {% for entry in entries %}
             <article class="entry">
-              <p class="time">{{ entry.created_at }}</p>
-              <p class="text">{{ entry.text }}</p>
+              <p class="time">
+                Created: {{ entry.created_at }} | Updated: {{ entry.updated_at }}
+              </p>
+              <form method="post" action="{{ url_for('edit_entry', entry_id=entry.id) }}">
+                <input type="text" name="title" value="{{ entry.title }}" maxlength="120" required />
+                <textarea name="content" rows="5" required>{{ entry.content }}</textarea>
+                <div class="actions">
+                  <button type="submit">Update</button>
+                </div>
+              </form>
+              <form method="post" action="{{ url_for('delete_entry', entry_id=entry.id) }}">
+                <button type="submit" class="danger">Delete</button>
+              </form>
             </article>
           {% endfor %}
         {% else %}
