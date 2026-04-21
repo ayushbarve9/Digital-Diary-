@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Digital Diary</h1>
+      <p class="subtitle">Write your thoughts and keep them safe.</p>
+
+      <section class="card">
+        <h2>New Entry</h2>
+        <form method="post" action="{{ url_for('add_entry') }}">
+          <textarea
+            name="entry_text"
+            rows="6"
+            placeholder="How was your day?"
+            required
+          ></textarea>
+          <button type="submit">Save Entry</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Past Entries</h2>
+        {% if entries %}
+          {% for entry in entries %}
+            <article class="entry">
+              <p class="time">{{ entry.created_at }}</p>
+              <p class="text">{{ entry.text }}</p>
+            </article>
+          {% endfor %}
+        {% else %}
+          <p>No entries yet. Write your first one above.</p>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

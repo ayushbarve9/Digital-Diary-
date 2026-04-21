@@ -1,21 +1,33 @@
-# Digital Diary (Python)
+# Digital Diary (Python Website)
 
-A simple beginner-friendly command-line diary app built with Python.
+A simple beginner-friendly diary website built with Python and Flask.
 
 ## Features
 
-- Add a new diary entry
-- View all saved entries
+- Add a new diary entry in a web form
+- View all saved entries in the browser
 - Entries are saved with date and time
 - Data stored locally in `diary_entries.json`
 
 ## Run the app
 
 1. Open terminal in this folder.
-2. Run:
+2. Install dependencies:
 
 ```bash
-python app.py
+py -m pip install -r requirements.txt
+```
+
+3. Start the website:
+
+```bash
+py app.py
+```
+
+4. Open this in your browser:
+
+```text
+http://127.0.0.1:5000
 ```
 
 ## Git + GitHub setup (first time)
